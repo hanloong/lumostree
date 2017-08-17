@@ -1,0 +1,13 @@
+<ul>
+  <%- nodes.each do |node| %>
+    <li>
+      <%= render partial: "form", locals: { node: node } %>
+    </li>
+    <li>
+      <%= render partial: "nodes", locals: { nodes: node.children, parent: node } %>
+    </li>
+  <%- end %>
+  <li>
+    <%= render partial: "form", locals: { node: Node.new(parent: parent) } %>
+  </li>
+</ul>

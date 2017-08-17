@@ -1,0 +1,11 @@
+<%= form_for node, html: { class: "form-inline" } do |f| %>
+  |---
+  <%= f.text_field :value, class: "form-control" %>
+  <%= f.hidden_field :parent_id %>
+  <% if node.new_record? %>
+    <%= f.submit "+ Add", class: "btn btn-primary" %>
+  <% else %>
+    <%= f.submit "Update", class: "btn btn-primary" %>
+    <%= link_to "Delete", node, class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+<% end %>
