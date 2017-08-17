@@ -2,7 +2,7 @@ class NodesController < ApplicationController
   before_action :set_node, only: %i(update destroy)
 
   def index
-    @nodes = Node.where(parent_id: nil).order(:created_at)
+    @nodes = Node.order(:created_at).hash_tree
   end
 
   def create

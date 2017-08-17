@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817092703) do
+ActiveRecord::Schema.define(version: 20170817101756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "node_hierarchies", id: false, force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "node_anc_desc_idx", unique: true
+    t.index ["descendant_id"], name: "node_desc_idx"
+  end
 
   create_table "nodes", force: :cascade do |t|
     t.string "value"

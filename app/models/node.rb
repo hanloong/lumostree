@@ -1,4 +1,6 @@
 class Node < ApplicationRecord
+  has_closure_tree
+
   belongs_to :parent, class_name: Node.name, optional: true
   has_many :children, class_name: Node.name, foreign_key: :parent_id, dependent: :destroy
 
