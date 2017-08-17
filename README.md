@@ -1,24 +1,19 @@
-# README
+# Lumostree
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a rails app that allows exposes an web interface for
+ - Creating trees
+ - Adding nested nodes
+ - Editing nodes
+ - Deleting nodes
 
-Things you may want to cover:
+# Setup
 
-* Ruby version
+```bash
+bin/rails setup
+```
 
-* System dependencies
+# Things to note
 
-* Configuration
+To help with the performance of rendering the initial tree I've decided to use the `closure_tree` gem which stores metadata about the nodes and their position in the tree in a way that a single query can be used to generated a hash with the nodes nested correctly.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I went with this gem after playing around with a few different pure ruby algorithms to build the tree from a list with all the nodes but thought if this was a production app I would most likely leverage something like `closure_tree` at least when working in a time constrainted situation.
