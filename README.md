@@ -9,7 +9,10 @@ This is a rails app that allows exposes an web interface for
 # Setup
 
 ```bash
-bin/rails setup
+git clone https://github.com/hanloong/lumostree
+cd lumostree
+bundle install
+bin/setup
 ```
 
 # Things to note
